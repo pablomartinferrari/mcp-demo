@@ -1,0 +1,50 @@
+# MCP Server Demo
+
+A simple Model Context Protocol (MCP) server implementation in Python with Azure deployment support.
+
+## Project Structure
+
+```
+.
+├── infrastructure/           # Infrastructure and deployment related files
+│   ├── azure/              # Azure deployment files
+│   │   ├── deploy.ps1     # PowerShell deployment script
+│   │   ├── deploy.sh      # Bash deployment script
+│   │   └── main.bicep     # Azure Bicep deployment template
+│   └── docker/            # Docker deployment files
+│       ├── Dockerfile     # Container definition
+│       └── docker-compose.yml # Docker Compose configuration
+├── main.py                 # MCP server implementation
+└── requirements.txt        # Python dependencies
+```
+
+## Development
+
+To run the MCP server locally:
+
+```powershell
+python main.py
+```
+
+To run with Docker:
+```powershell
+cd infrastructure/docker
+docker compose up --build   # Build and start the container
+docker compose down        # Stop and remove the container
+```
+
+To test the MCP server, send a message:
+```powershell
+echo '{"type": "prompt", "content": "Hello MCP Server!", "metadata": {}}' | docker compose exec -T mcp-server-demo python -u main.py
+```
+
+## Deployment
+
+To deploy to Azure:
+
+```powershell
+cd infrastructure/azure
+./deploy.ps1
+```
+
+Make sure you have the Azure CLI installed and are logged in before deploying.

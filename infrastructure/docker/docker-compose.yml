@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mcp-server-demo:  # Changed from mcp-server to mcp-server-demo
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile
+    image: mcp-server-demo:latest
+    container_name: mcp-server-demo
+    stdin_open: true  # Keep STDIN open
+    tty: true        # Allocate a pseudo-TTY
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

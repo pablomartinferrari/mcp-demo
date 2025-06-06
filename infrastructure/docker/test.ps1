@@ -1,0 +1,1 @@
+param([string]$Content,[string]$Type="prompt",[hashtable]$Metadata=@{});$m=@{type=$Type;content=$Content;metadata=$Metadata}|ConvertTo-Json -Depth 10;Write-Host "Sending: $m" -F Gray;$r="$m`n"|docker exec -i mcp-server-demo python -u main.py;if($r -match "^{.*}$"){$response=$r|ConvertFrom-Json;Write-Host "Response: $($response.content)" -F Green}else{Write-Host $r -F Gray}
