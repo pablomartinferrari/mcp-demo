@@ -1,8 +1,10 @@
-# MCP Server Demo
+# MCP Server Demo (Humorous Edition)
 
-A simple Model Context Protocol (MCP) server implementation in Python with Azure deployment support.
+A simplified Model Context Protocol (MCP) server implemented in Python. This version reads plain text from standard input and responds with a humorous message. It is Docker- and Azure-deployable.
 
 ## Project Structure
+
+
 
 ```
 .
@@ -14,7 +16,7 @@ A simple Model Context Protocol (MCP) server implementation in Python with Azure
 │   └── docker/            # Docker deployment files
 │       ├── Dockerfile     # Container definition
 │       └── docker-compose.yml # Docker Compose configuration
-├── main.py                 # MCP server implementation
+├── main.py                 main.py # MCP server implementation (reads text, returns funny responses)
 └── requirements.txt        # Python dependencies
 ```
 
